@@ -1,21 +1,19 @@
 (function init() {
-  const buttons = document.querySelectorAll('.button')
-  const images = document.querySelectorAll('.bg')
-  const input = document.querySelector('input')
-  const label = document.querySelector('label')
+  const buttons = document.querySelectorAll('.buttons .link')
+  const images = document.querySelectorAll('.backgrounds .bg')
 
   buttons.forEach((e, i) => {
     e.addEventListener('mouseenter', () => {
-      const active = document.querySelector('.active')
-      active.classList.remove('active')
-      images[i].classList.add('active')
-    })
-  })
+      const active = document.querySelectorAll('.active')
 
-  input.addEventListener('input', (e) => {
-    label.textContent = `Transition Duration: ${e.target.value}`
-    images.forEach(image => {
-      image.style.transitionDuration = `${e.target.value}ms` || '500ms'
+      if (active && active.length > 0) {
+        active.forEach(e => {
+          e.classList.remove('active')
+        })
+      }
+
+      images[i].classList.add('active')
+      e.classList.add('active')
     })
   })
 })()

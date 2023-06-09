@@ -1,59 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;500&display=swap');
+
 html, body {
   height: 100%;
-  background: #000;
+  background: #FFF;
   color: #FFF;
 }
 
-body {
-  overflow-x: hidden;
+p::selection, a::selection, h1::selection, span::selection, img::selection {
+  color: #FFF;
+  background-color: #638D50;
 }
 
-.content {
+.header, .main, .footer {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 5;
   position: relative;
+}
+
+.header {
+  position: absolute;
+  z-index: 10;
+  margin-top: 20px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo img {
+  width: 195px;
+  height: 95px;
+}
+
+.header .list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .menu .list {
+  flex-grow: 0;
+}
+
+.header .menu .list .item {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 16px;
+  height: 10px;
+  max-width: 135px;
 }
 
-.bg {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
-  width: 100vw;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s ease 0s;
+.header .menu .list .item + .item {
+  border-left: 1px solid #FFF;
 }
 
-.bg.active {
-  opacity: 1;
-  transition: opacity 0.5s ease 0s;
+.header .menu .link {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color .5s ease 0s;
 }
 
-.buttons {
-  width: 100%;
-  height: 100vh;
-  z-index: 2;
+.header .menu .link:hover {
+  color: #E08B3A;
+  transition: color .5s ease 0s;
+}
+
+.header .lang .item {
+  font-size: 0;
+  margin: 0 3px;
+}
+
+.header .lang .item .link {
+  padding: 3px;
+  border: 2px solid rgba(217, 217, 217, 0.5);
+  border-radius: 50%;
+  display: block;
+  transition: border-color .5s ease 0s;
+}
+
+.header .lang .item .link:hover {
+  border-color: #E08B3A;
+  transition: border-color .5s ease 0s;
+}
+
+.header .lang .item img {
+  height: 19px;
+  width: 19px;
+}
+
+.header .controls .item {
+  height: 30px;
+  width: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+  margin: 0 3px;
+}
+
+.main {
+  height: 200vh;
+}
+
+.main .head {
+  min-height: 700px;
+  background: url("../img/image_default.png") center center no-repeat;
+}
+
+.main .head .backgrounds {
+  pointer-events: none;
+}
+
+.main .head .backgrounds .list .item {
+  height: 700px;
+  width: 100%;
+  position: absolute;
+  object-fit: contain;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.main .head .backgrounds .bg {
+  height: 700px;
+  opacity: 0;
+  transition: opacity 0.75s ease 0s;
+}
+
+.main .head .backgrounds .bg.active {
+  opacity: 1;
+  transition: opacity 0.75s ease 0s;
+}
+
+.main .head .backgrounds .bg-1 {
+  background: url("../img/image_for_icon1.png") center center no-repeat;
+}
+
+.main .head .backgrounds .bg-2 {
+  background: url("../img/image_for_icon2.png") center center no-repeat;
+}
+
+.main .head .backgrounds .bg-3 {
+  background: url("../img/image_for_icon3.png") center center no-repeat;
+}
+
+.main .head .page-description {
+  padding-top: 175px;
+  margin-bottom: 30px;
+}
+
+.main .head .page-description .text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  letter-spacing: .4em;
+  text-align: center;
+}
+
+.main .buttons .list {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.button {
-  background-color: #444;
-  padding: 12px 24px;
+.main .buttons .list .item {
+  font-size: 0;
+  flex-grow: 1;
+}
+
+.main .buttons .list .link {
+  display: block;
+  width: 100%;
+  max-width: 383px;
+  background-color: #FFF;
+  color: #1C1B1B;
+  border-radius: 20px;
+  padding: 0 25px;
+}
+
+.main .buttons .list .link.active {
+  background-color: #638D50;
   color: #FFF;
 }
 
-.settings {
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 3;
-  padding: 20px 40px;
+.main .buttons .button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main .buttons .info {
+  padding: 25px;
+}
+
+.main .buttons .button::before,
+.main .buttons .button::after {
+  display: block;
+  content: '';
+  flex-shrink: 0;
+}
+
+.main .buttons .button::after {
+  width: 19px;
+  height: 32px;
+  background-image: url("../img/arrow.png");
+}
+
+.main .buttons .active .button::after {
+  width: 19px;
+  height: 32px;
+  background-image: url("../img/arrow-hover.png");
+}
+
+.main .buttons .b1::before {
+  width: 58px;
+  height: 57px;
+  background: url("../img/icon1.png") left center no-repeat;
+}
+
+.main .buttons .b2::before {
+  width: 67px;
+  height: 52px;
+  background: url("../img/icon2.png") left center no-repeat;
+}
+
+.main .buttons .b3::before {
+  width: 59px;
+  height: 59px;
+  background: url("../img/icon3.png") left center no-repeat;
+}
+
+.main .buttons .active .b1::before {
+  width: 58px;
+  height: 57px;
+  background: url("../img/icon1-hover.png") left center no-repeat;
+}
+
+.main .buttons .active .b2::before {
+  width: 67px;
+  height: 52px;
+  background: url("../img/icon2-hover.png") left center no-repeat;
+}
+
+.main .buttons .active .b3::before {
+  width: 59px;
+  height: 59px;
+  background: url("../img/icon3-hover.png") left center no-repeat;
+}
+
+.main .buttons .info .title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.main .buttons .info .description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.main .page-title {
+  margin: 60px auto 0 auto;
+  max-width: 800px;
+}
+
+.main .page-title .title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 55px;
+  line-height: 59px;
+  text-align: center;
+}
+
+.main .page-title .title .highlight {
+  font-weight: 700;
 }
