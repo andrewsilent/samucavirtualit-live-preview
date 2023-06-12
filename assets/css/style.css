@@ -17,7 +17,7 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   margin: 0 auto;
 }
 
-.container {
+.head-container {
   max-width: 1280px;
   margin: 0 auto;
   z-index: 5;
@@ -28,9 +28,11 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   position: absolute;
   z-index: 10;
   margin-top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.header .container {
+.header .head-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,17 +43,19 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   height: 95px;
 }
 
-.header .list {
+.header .menu-list,
+.header .lang-list,
+.header .controls-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header .menu .list {
+.header .menu .menu-list {
   flex-grow: 0;
 }
 
-.header .menu .list .item {
+.header .menu .menu-list .menu-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +65,7 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   max-width: 135px;
 }
 
-.header .menu .list .item + .item {
+.header .menu .menu-list .menu-item + .menu-item {
   border-left: 1px solid #FFF;
 }
 
@@ -78,12 +82,12 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   transition: color .5s ease 0s;
 }
 
-.header .lang .item {
+.header .lang .lang-item {
   font-size: 0;
   margin: 0 3px;
 }
 
-.header .lang .item .link {
+.header .lang .lang-item .link {
   padding: 3px;
   border: 2px solid rgba(217, 217, 217, 0.5);
   border-radius: 50%;
@@ -91,17 +95,17 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   transition: border-color .5s ease 0s;
 }
 
-.header .lang .item .link:hover {
+.header .lang .lang-item .link:hover {
   border-color: #E08B3A;
   transition: border-color .5s ease 0s;
 }
 
-.header .lang .item img {
+.header .lang .lang-item img {
   height: 19px;
   width: 19px;
 }
 
-.header .controls .item {
+.header .controls .controls-item {
   height: 30px;
   width: 30px;
   display: flex;
@@ -124,7 +128,7 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   pointer-events: none;
 }
 
-.main .head .backgrounds .list .item {
+.main .head .backgrounds .bg-list .bg-item {
   height: 700px;
   width: 100%;
   position: absolute;
@@ -169,18 +173,18 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   text-align: center;
 }
 
-.main .buttons .list {
+.main .buttons .buttons-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.main .buttons .list .item {
+.main .buttons .buttons-list .buttons-item {
   font-size: 0;
   flex-grow: 1;
 }
 
-.main .buttons .list .link {
+.main .buttons .buttons-list .link {
   display: block;
   width: 100%;
   max-width: 383px;
@@ -190,12 +194,12 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   padding: 0 25px;
 }
 
-.main .buttons .list .link.active {
+.main .buttons .buttons-list .link.active {
   background-color: #638D50;
   color: #FFF;
 }
 
-.main .buttons .button {
+.main .buttons .head-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -205,20 +209,20 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   padding: 25px;
 }
 
-.main .buttons .button::before,
-.main .buttons .button::after {
+.main .buttons .head-button::before,
+.main .buttons .head-button::after {
   display: block;
   content: '';
   flex-shrink: 0;
 }
 
-.main .buttons .button::after {
+.main .buttons .head-button::after {
   width: 19px;
   height: 32px;
   background-image: url("../img/arrow.png");
 }
 
-.main .buttons .active .button::after {
+.main .buttons .active .head-button::after {
   width: 19px;
   height: 32px;
   background-image: url("../img/arrow-hover.png");
