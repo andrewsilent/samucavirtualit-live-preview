@@ -171,6 +171,7 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   font-size: 20px;
   letter-spacing: .4em;
   text-align: center;
+  color: #FFF;
 }
 
 .main .buttons .buttons-list {
@@ -180,8 +181,9 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
 }
 
 .main .buttons .buttons-list .buttons-item {
-  font-size: 0;
-  flex-grow: 1;
+  /*font-size: 0;*/
+  /*flex-grow: 1;*/
+  margin: 10px;
 }
 
 .main .buttons .buttons-list .link {
@@ -269,6 +271,7 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   font-size: 22px;
   font-weight: 600;
   text-transform: uppercase;
+  color: #000;
 }
 
 .main .buttons .info .description {
@@ -276,11 +279,13 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   font-size: 14px;
   font-weight: 500;
   line-height: 14px;
+  color: #000;
 }
 
 .main .page-title {
-  margin: 60px auto 0 auto;
+  margin: 0 auto;
   max-width: 800px;
+  padding-top: 60px;
 }
 
 .main .page-title .title {
@@ -289,8 +294,25 @@ p::selection, a::selection, h1::selection, span::selection, img::selection {
   font-size: 55px;
   line-height: 59px;
   text-align: center;
+  color: #FFF;
 }
 
 .main .page-title .title .highlight {
   font-weight: 700;
+}
+
+
+@media screen and (max-width: 1080px) {
+  .main .head .page-description{
+    padding-top: 120px;
+    margin-bottom: 16px;
+  }
+
+  .main .buttons .buttons-list {
+    flex-direction: column;
+  }
+
+  .main .page-title {
+    padding-top: 16px;
+  }
 }
